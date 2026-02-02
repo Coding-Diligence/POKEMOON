@@ -1,10 +1,17 @@
 import { initTRPC } from "@trpc/server";
+import type { PrismaClient } from "../generated/prisma";
+
+type Context = {
+  prisma: PrismaClient;
+  req: Request;
+  resHeaders: Headers;
+};
 
 /**
  * Initialization of tRPC backend
  * Should be done only once per backend!
  */
-const t = initTRPC.context<object>().create();
+const t = initTRPC.context<Context>().create();
 
 /**
  * Export reusable router and procedure helpers
