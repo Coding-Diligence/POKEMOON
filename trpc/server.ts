@@ -1,6 +1,6 @@
 import { initTRPC } from "@trpc/server";
 import type { PrismaClient } from "../generated/prisma";
-
+import { pokemonRouter } from "./routers/pokemon";
 type Context = {
   prisma: PrismaClient;
   req: Request;
@@ -9,31 +9,32 @@ type Context = {
 
 /**
  * Initialization of tRPC backend
- * Should be done only once per backend!
  */
 const t = initTRPC.context<Context>().create();
 
 /**
- * Export reusable router and procedure helpers
- * that can be used throughout the router
+ * Helpers
  */
 export const router = t.router;
 export const publicProcedure = t.procedure;
 
+/**
+ * App router
+ */
 export const appRouter = router({
-  demo: publicProcedure.query(async () => {
+  demo: publicProcedure.query(() => {
     return { demo: true };
   }),
+
+  pokemon: pokemonRouter,
+
   onNewTodo: publicProcedure
     .input((value): string => {
-      if (typeof value === "string") {
-        return value;
-      }
+      if (typeof value === "string") return value;
       throw new Error("Input is not a string");
     })
-    .mutation(async (opts) => {
-      // This is where you'd persist the data
-      console.log("Received new todo", { text: opts.input });
+    .mutation(async ({ input }) => {
+      console.log("Received new todo", { text: input });
     }),
 });
 
