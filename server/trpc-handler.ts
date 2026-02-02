@@ -1,6 +1,7 @@
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 import { enhance, type Get, type UniversalHandler } from "@universal-middleware/core";
 import { appRouter } from "../trpc/server";
+import { prisma } from "./db";
 
 export const trpcHandler = ((endpoint) =>
   enhance(
@@ -15,6 +16,7 @@ export const trpcHandler = ((endpoint) =>
             ...runtime,
             req,
             resHeaders,
+            prisma,
           };
         },
       });

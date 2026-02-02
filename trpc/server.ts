@@ -1,10 +1,16 @@
 import { initTRPC } from "@trpc/server";
+import type { PrismaClient } from "../generated/prisma";
 import { pokemonRouter } from "./routers/pokemon";
+type Context = {
+  prisma: PrismaClient;
+  req: Request;
+  resHeaders: Headers;
+};
 
 /**
  * Initialization of tRPC backend
  */
-const t = initTRPC.context<object>().create();
+const t = initTRPC.context<Context>().create();
 
 /**
  * Helpers
