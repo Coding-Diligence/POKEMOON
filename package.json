@@ -1,0 +1,36 @@
+{
+  "scripts": {
+    "dev": "vike dev",
+    "build": "vike build",
+    "preview": "vike build && vike preview",
+    "prod": "vike build && node ./dist/server/index.mjs",
+    "prisma:studio": "prisma studio",
+    "prisma:generate": "prisma generate"
+  },
+  "dependencies": {
+    "@photonjs/express": "^0.1.13",
+    "@prisma/client": "^7.3.0",
+    "@trpc/client": "^11.8.1",
+    "@trpc/server": "^11.8.1",
+    "@universal-middleware/core": "^0.4.16",
+    "express": "^5.2.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "vike": "^0.4.252",
+    "vike-photon": "^0.1.24",
+    "vike-react": "^0.6.19"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/express": "^5.0.6",
+    "@types/react": "^19.2.9",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
+    "prettier": "^3.8.1",
+    "prisma": "^7.3.0",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  },
+  "type": "module"
+}
