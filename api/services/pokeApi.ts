@@ -29,7 +29,7 @@ async function pokeFetch<T>(path: string): Promise<T> {
 }
 
 export async function listPokemon(
-  limit = 20,
+  limit = 200,
   offset = 0
 ): Promise<PokemonListItem[]> {
   const data = await pokeFetch<{ results: { name: string; url: string }[] }>(
