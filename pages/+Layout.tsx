@@ -25,7 +25,7 @@ function Navbar() {
     <nav className="flex items-center justify-between p-5 border-b border-gray-200">
       <Logo />
       <div className="flex gap-6">
-        <Link href="/pokemon">Pokémon</Link>
+        <Link href="/pokemon">Pokédex</Link>
       </div>
     </nav>
   );
