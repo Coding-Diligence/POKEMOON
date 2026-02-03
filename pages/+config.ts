@@ -7,7 +7,7 @@ import vikeReact from "vike-react/config";
 
 export default {
   // https://vike.dev/head-tags
-  title: "My Vike App",
+  title: "POKEMOOOON",
   description: "Demo showcasing Vike",
 
   extends: [vikeReact, vikePhoton],
